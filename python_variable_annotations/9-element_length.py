@@ -1,24 +1,11 @@
 #!/usr/bin/env python3
+"""element_length"""
 
-from typing import Callable
-
-
-"""
-With the funtion's parameters :
-
-    def element_length(lst):
-    return [(i, len(i)) for i in lst]
-
-Returns appropriate types
-"""
+from typing import List, Tuple, Iterable, Sequence
 
 
-def element_length(lst: list) -> list[tuple[any, int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
+    """Returns a list of tuples containing the input list elements
+    and their lengths
     """
-    For the appropriate types we are :
-    len the length of each element in the given list.
-    lst the list of any type of elements.
-
-    Returns a list of tuples.
-    """
-    return [(i, len(i)) for i in lst]
+    return [(element, len(element)) for element in lst]
