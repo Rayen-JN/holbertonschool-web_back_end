@@ -1,28 +1,20 @@
 #!/usr/bin/env python3
 '''
-Import wait_random from the previous python file that you’ve written
-and write an async routine called wait_n that takes
-in 2 int arguments (in this order): n and max_delay.
-You will spawn wait_random n times with the specified max_delay.
+Create a measure_time function with integers n and max_delay as arguments
+that measures the total execution time for wait_n(n, max_delay),
+and returns total_time / n. Your function should return a float.
 '''
 
+from time import time
+from asyncio import run
 
-import asyncio
-import random
-from typing import List
-wait_random = __import__('0-basic_async_syntax').wait_random
+wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
-async def wait_n(n: int, max_delay: int = 10) -> List[float]:
-    """ Waits for ran delay until max_delay, returns list of actual delays """
-    spawn_ls = []
-    delay_ls = []
-    for i in range(n):
-        delayed_task = asyncio.create_task(wait_random(max_delay))
-        delayed_task.add_done_callback(lambda x: delay_ls.append(x.result()))
-        spawn_ls.append(delayed_task)
-
-    for spawn in spawn_ls:
-        await spawn
-
-    return delay_ls
+def measure_time(n: int, max_delay: int) -> float:
+    ''' Return execution time for wait_n given `n` and `max_delay`. '''
+    begin = time()
+    run(wait_n(n, max_delay))
+    finish = time()
+    elapsed_time = finish - begin
+    return elapsed_time / n
