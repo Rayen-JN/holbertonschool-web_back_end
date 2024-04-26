@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
+"""make_multiplier"""
 
 from typing import Callable
 
 
-"Take a float multiplier with an type-annotation make_multiplier"
-
-
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
-    "Take type make_multiplier and returns the multiplier type Float"
+    """Creates a function that multiplies a float by a multiplier
+"""
 
-    def multiply(value: float) -> float:
-        return value * multiplier
-    return multiply
+    def multiply_func(n: float) -> float:
+        return n * multiplier
+
+    return multiply_func
