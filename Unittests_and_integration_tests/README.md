@@ -125,8 +125,3 @@ python -m unittest path/to/test_file.py
 ## 📁 Project Repository
 [GitHub Repository](https://github.com/holbertonschool-web_back_end)
 
----
-
-## 👨‍💻 Author
-Emmanuel Turlay, Staff Software Engineer at Cruise
-Erwan Lebreton, student at Holberton School
